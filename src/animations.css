@@ -25,7 +25,7 @@
 
 .twinkling{
 	background:transparent url('https://i.imgur.com/XYMF4ca.png') repeat top center;
-	animation: move-twink-back 400s linear infinite;
+	animation: move-twink-back 300s linear infinite;
 }
 
 @keyframes move-twink-back {
