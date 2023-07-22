@@ -4,10 +4,15 @@ import githubMark from './github-mark-white.png'
 
 function App() {
   const [sign, setSign] = useState(undefined)
+  const [newSignDetected, setNewSignDetected] = useState(false)
   function handleSignSelect(e) {
     const signName = e.target.id
     console.log(signName)
     setSign(signName)
+    setNewSignDetected(true)
+    setTimeout(() => {
+      setNewSignDetected(false)
+    }, 300)
   }
   return (
     <div className="text-center py-4 h-screen text-neutral-200">
@@ -29,7 +34,7 @@ function App() {
     <button id="Pisces"      className="text-black z-30 rounded-full py-2 px-4 bg-green-200"onClick={(e) => handleSignSelect(e)}>Pisces</button>
     </ul>
     {sign ?
-    <div className="fade-in-slow relative z-30">
+    <div className={newSignDetected ? "fade-in-slow relative z-30" : "relative z-30"}>
     <h2 className="p-1 text-xl md:text-4xl">Daily Horrible Horoscope for {sign}</h2>
     <p className="p-1 py-8 md:text-lg">{sign} horoscope</p>
     <p>Want to contribute to the project? <a className="underline" href='/'>Write some horrible horoscopes</a> of your own to be added to the mix.</p>
